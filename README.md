@@ -1,2 +1,2 @@
 # advent_in_rust
-Solving all 2022 Advent of Code challenges.
+This is my repo for the 2023 advent of code challenges.
