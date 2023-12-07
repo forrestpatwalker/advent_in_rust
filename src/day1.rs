@@ -36,6 +36,7 @@ Consider your entire calibration document. What is the sum of all of the calibra
 use std::fs::File;
 use std::io::{BufReader, BufRead};
 use std::path::Path;
+use std::collections::HashMap;
 
 pub fn run() {
     let path = Path::new("input_files/day1_input.txt");
@@ -45,13 +46,25 @@ pub fn run() {
     let mut total_value = 0;
 
     for line in reader.lines() {
-        let calibration_string = line.unwrap();
-        let first_num = calibration_string.chars().find(|&c| c.is_digit(10));
-        let last_num = calibration_string.chars().rev().find(|&c| c.is_digit(10));
 
-        let combined = format!("{}{}", first_num.unwrap(), last_num.unwrap());
+        // let mut digit_hash: HashMap<usize, i32> = HashMap::new();
+        // let calibration_string = line.unwrap();
+        // let mut char_indices: Vec<(usize, char)> = calibration_string.char_indices().collect();
 
-        total_value += combined.parse::<i32>().unwrap();
+        // for (index, ch) in char_indices {
+        //     if ch.is_digit(10) {
+        //         digit_hash
+        //     }
+        // }
+
+
+
+        // let first_num = calibration_string.chars_indices().collect().iter().find(|&(index, c)| c.is_digit(10));
+        // let last_num = calibration_string.chars().rev().find(|&(index, c)| c.is_digit(10));
+
+        // let combined = format!("{}{}", first_num.unwrap().1, last_num.unwrap());
+
+        // total_value += combined.parse::<i32>().unwrap();
     }
 
     println!("The sum of all of the calibration values is: {}", total_value);
