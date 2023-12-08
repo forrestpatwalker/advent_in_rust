@@ -1,26 +1,18 @@
 use crate::errors::AdventError;
 
 pub fn _part_one(input: &str) -> Result<i32, AdventError> {
-    let output = input
-    .lines()
-    .map(|line| {
-        let mut it = line.chars().filter_map(|character| {
-            character.to_digit(10)
-        });
+    let mut total_value = 0;
 
-        let first = it.next().expect("should be a number");
+    for line in input.lines() {
+        let first_num = line.chars().find(|c| c.is_digit(10)).expect("There should be a first digit");
+        let second_num = line.chars().rev().find(|c| c.is_digit(10)).expect("There should be a second digit");
 
-        match it.last() {
-            Some(num) => format!("{first}{num}"),
-            None => format!("{first}{first}")
-        }
-        .parse::<i32>()
-        .expect("Should be a valid number")
+        let combined = format!("{first_num}{second_num}").parse::<i32>().expect("concatenated value should parse");
 
-    })
-    .sum::<i32>();
+        total_value += combined;
+    }
 
-    Ok(output)
+    Ok(total_value)
 }
 
 #[cfg(test)]
