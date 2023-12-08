@@ -1,7 +1,7 @@
 use std::collections::{HashMap, BTreeMap};
 use crate::errors::AdventError;
 
-pub fn part_two(input: &str) -> Result<i32, AdventError> {
+pub fn _part_two(input: &str) -> Result<i32, AdventError> {
     let mut total_value = 0;
     for line in input.lines() {
         let numbers:HashMap<&str, char> = HashMap::from([
@@ -55,13 +55,13 @@ mod tests {
         zoneight234
         7pqrstsixteen";
 
-        assert_eq!(Ok(281), part_two(input))
+        assert_eq!(Ok(281), _part_two(input))
     }
 
     #[test]
     fn full_test() {
         let input = include_str!("day1_input.txt");
 
-        assert_eq!(Ok(54925), part_two(input))
+        assert_eq!(Ok(54925), _part_two(input))
     }
 }

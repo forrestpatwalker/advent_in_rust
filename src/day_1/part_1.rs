@@ -1,6 +1,6 @@
 use crate::errors::AdventError;
 
-pub fn part_one(input: &str) -> Result<i32, AdventError> {
+pub fn _part_one(input: &str) -> Result<i32, AdventError> {
     let output = input
     .lines()
     .map(|line| {
@@ -34,13 +34,13 @@ mod tests {
         a1b2c3d4e5f
         treb7uchet";
 
-        assert_eq!(Ok(142), part_one(input))
+        assert_eq!(Ok(142), _part_one(input))
     }
 
     #[test]
     fn full_test() {
         let input = include_str!("day1_input.txt");
 
-        assert_eq!(Ok(55172), part_one(input))
+        assert_eq!(Ok(55172), _part_one(input))
     }
 }
